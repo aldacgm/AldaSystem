@@ -4,7 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instituto - Inicio</title>
+
+    <style>
+        @font-face {
+            font-family: 'Stargod';
+            src: url('fuentes/Stargod.ttf') format('truetype');
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7ff;
+            color: #27187e;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            font-family: 'Stargod', Arial, sans-serif;
+            text-align: center;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th {
+            background: #27187e;
+            color: white;
+            padding: 10px;
+        }
+
+        td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+
+        tr:hover {
+            background: #ddd;
+        }
+
+        .nav-container {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .btn-nav {
+            background: #004643;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .btn-nav:hover {
+            background: #006d5b;
+        }
+    </style>
 </head>
+
 <body>
 
     <h1>Bienvenidos a nuestra institución</h1>
@@ -20,7 +93,7 @@
 
     <h2>Nuestras Carreras</h2>
 
-    <table border="1">
+    <table>
         <tr>
             <th>Carrera</th>
             <th>Duración</th>
@@ -29,16 +102,25 @@
         <tr>
             <td>Desarrollo de Software</td>
             <td>3 años</td>
+            <td>Presencial</td>
         </tr>
         <tr>
             <td>Administración</td>
             <td>3 años</td>
+            <td>Semipresencial</td>
         </tr>
         <tr>
             <td>Contabilidad</td>
             <td>3 años</td>
+            <td>Virtual</td>
         </tr>
     </table>
+
+    <div class="nav-container">
+        <a href="productod.html" class="btn-nav">Ir a Productos</a>
+    </div>
+
     <p>goku</p>
+
 </body>
 </html>

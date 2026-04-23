@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Instituto</title>
+
+    <style>
+        @font-face {
+            font-family: 'Stargod';
+            src: url('fuentes/Stargod.ttf') format('truetype');
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #222222;
+            margin: 0;
+            color: #000;
+        }
+
+        h1 {
+            font-family: 'Stargod', Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .contenedor {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            background: #89e900;
+            color: #000;
+            width: 250px;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .precio {
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #000;
+            color: #89e900;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        .volver {
+            text-align: center;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Nuestros Productos Académicos</h1>
+
+    <div class="contenedor">
+
+        <div class="card">
+            <h3>Curso de Programación</h3>
+            <p>Aprende Java, HTML, CSS y más.</p>
+            <p class="precio">S/ 300</p>
+            <a href="#" class="btn">Ver más</a>
+        </div>
+
+        <div class="card">
+            <h3>Curso de Administración</h3>
+            <p>Gestión empresarial moderna.</p>
+            <p class="precio">S/ 250</p>
+            <a href="#" class="btn">Ver más</a>
+        </div>
+
+        <div class="card">
+            <h3>Curso de Contabilidad</h3>
+            <p>Finanzas y control de empresas.</p>
+            <p class="precio">S/ 280</p>
+            <a href="#" class="btn">Ver más</a>
+        </div>
+
+        <div class="card">
+            <h3>Curso de Diseño Gráfico</h3>
+            <p>Domina Photoshop e Illustrator.</p>
+            <p class="precio">S/ 320</p>
+            <a href="#" class="btn">Ver más</a>
+        </div>
+
+    </div>
+
+    <div class="volver">
+        <a href="index.html" class="btn">⬅ Volver al inicio</a>
+    </div>
+
+</body>
+</html>
