@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Admisión</title>
+
+<style>
+/* FUENTES */
+@font-face {
+    font-family: 'Blackrush';
+    src: url('fuentes/Blackrush.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Stargod';
+    src: url('fuentes/Stargod.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Saiyan-Sans';
+    src: url('fuentes/Saiyan-Sans.ttf') format('truetype');
+}
+
+body{
+    margin:0;
+    background:#f2f2f2;
+    font-family:'Stargod', Arial, sans-serif;
+}
+
+/* HEADER */
+.header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:60px;
+    background:white;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 15px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    z-index:100;
+}
+
+.header h1{
+    font-family:'Saiyan-Sans', sans-serif;
+    font-size:52px;
+    margin:0;
+}
+
+.header button{
+    padding:8px 12px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:#222;
+    color:white;
+}
+
+/* CONTENEDOR */
+.container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    padding-top:70px;
+}
+
+.card{
+    background:white;
+    width:360px;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    position:relative;
+    overflow:hidden;
+}
+
+.step{
+    position:absolute;
+    width:100%;
+    left:0;
+    top:0;
+    opacity:0;
+    transform:translateX(40px);
+    transition:all 0.4s ease;
+    pointer-events:none;
+}
+
+.step.active{
+    opacity:1;
+    transform:translateX(0);
+    pointer-events:auto;
+    position:relative;
+}
+
+/* TITULOS GRANDES */
+h2{
+    font-family:'Blackrush', sans-serif;
+    font-size:70px;
+}
+
+/* TEXTOS PEQUEÑOS */
+input, select, p{
+    font-family:'Stargod', sans-serif;
+}
+
+input, select{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+button{
+    padding:10px;
+    width:48%;
+    margin-top:10px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.next{background:#4CAF50;color:white;}
+.back{background:#999;color:white;}
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <button onclick="location.href='index.html'">⬅ Regresar</button>
+    <h1>Alda University</h1>
+    <div></div>
+</div>
+
+<div class="container">
+<div class="card">
+
+    <!-- STEP 1 -->
+    <div class="step active" id="step0">
+        <h2>Datos Generales</h2>
+        <input id="nombre" placeholder="Nombre completo">
+        <input id="dni" placeholder="DNI">
+        <input id="edad" placeholder="Edad">
+        <button class="next" onclick="nextStep()">Continuar</button>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step" id="step1">
+        <h2>Carrera</h2>
+        <select id="carrera">
+            <option>Ingeniería de Sistemas</option>
+            <option>Medicina Humana</option>
+            <option>Derecho</option>
+            <option>Administración</option>
+            <option>Contabilidad</option>
+            <option>Arquitectura</option>
+            <option>Psicología</option>
+        </select>
+        <button class="back" onclick="backStep()">Atrás</button>
+        <button class="next" onclick="nextStep()">Continuar</button>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step" id="step2">
+        <h2>Modalidad</h2>
+        <select id="modalidad">
+            <option>Presencial</option>
+            <option>Virtual</option>
+            <option>Semi-presencial</option>
+        </select>
+        <button class="back" onclick="backStep()">Atrás</button>
+        <button class="next" onclick="nextStep()">Continuar</button>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step" id="step3">
+        <h2>Fecha de Examen</h2>
+        <select id="fecha">
+            <option>2026-05-10</option>
+            <option>2026-05-17</option>
+            <option>2026-05-24</option>
+        </select>
+        <button class="back" onclick="backStep()">Atrás</button>
+        <button class="next" onclick="nextStep()">Continuar</button>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="step" id="step4">
+        <h2>Resumen</h2>
+        <p id="resumen"></p>
+        <button class="back" onclick="backStep()">Atrás</button>
+        <button class="next" onclick="enviar()">Finalizar</button>
+    </div>
+
+</div>
+</div>
+
+<script>
+let current = 0;
+
+function showStep(i){
+    document.querySelectorAll(".step").forEach(s => s.classList.remove("active"));
+    document.getElementById("step"+i).classList.add("active");
+}
+
+function nextStep(){
+    if(current < 4) current++;
+    if(current === 4) generarResumen();
+    showStep(current);
+}
+
+function backStep(){
+    if(current > 0) current--;
+    showStep(current);
+}
+
+function generarResumen(){
+    let texto = 
+    "Nombre: " + document.getElementById("nombre").value + "<br>" +
+    "DNI: " + document.getElementById("dni").value + "<br>" +
+    "Edad: " + document.getElementById("edad").value + "<br>" +
+    "Carrera: " + document.getElementById("carrera").value + "<br>" +
+    "Modalidad: " + document.getElementById("modalidad").value + "<br>" +
+    "Fecha: " + document.getElementById("fecha").value;
+
+    document.getElementById("resumen").innerHTML = texto;
+}
+
+function enviar(){
+    alert("Inscripción enviada correctamente 🔥");
+}
+</script>
+
+</body>
+</html>
