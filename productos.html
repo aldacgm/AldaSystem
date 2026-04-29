@@ -12,19 +12,35 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background: #222222;
-            margin: 0;
-            color: #000;
-        }
+        font-family: Arial, sans-serif;
+        background: url('img/fondop.png') no-repeat center center fixed;
+        background-size: cover;
+        margin: 0;
+        color: #000;
+        }       
 
         h1 {
-            font-family: 'Stargod', Arial, sans-serif;
-            text-align: center;
-            padding: 20px;
-            color: #fff;
-            font-size: 50px;
-        }
+    font-family: 'Stargod', Arial, sans-serif;
+    font-size: 50px;
+    color: #ffffff;
+    text-align: center;
+    animation: brillo 2s infinite alternate;
+}
+
+@keyframes brillo {
+    from {
+        text-shadow: 
+            0 0 5px #fff,
+            0 0 10px #61dde8,
+            0 0 20px #6de0ec;
+    }
+    to {
+        text-shadow: 
+            0 0 10px #fff,
+            0 0 20px #2478a2,
+            0 0 40px #3390d8;
+    }
+}
 
         .contenedor {
             display: flex;
@@ -35,8 +51,8 @@
         }
 
         .card {
-            background: #89e900;
-            color: #000;
+            background: #02414a;
+            color: #ffffff;
             width: 250px;
             border-radius: 10px;
             padding: 15px;
